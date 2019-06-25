@@ -1,14 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>VoiceTodos</title>
-  <base href="/">
+  <head>
+    <meta charset="utf-8" />
+    <title>VoiceTodos</title>
+    <base href="/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+      $(function() {
+        $(".toggle-btn").click(function() {
+          $(".filter-btn").toggleClass("open");
+        });
+
+        $(".filter-btn a").click(function() {
+          $(".filter-btn").removeClass("open");
+        });
+      });
+
+      $("#all").click(function() {
+        $("ul.tasks li").slideDown(300);
+      });
+
+      $("#one").click(function() {
+        $(".tasks li:not(.one)").slideUp(300, function() {
+          $(".one").slideDown(300);
+        });
+      });
+
+      $("#two").click(function() {
+        $(".tasks li:not(.two)").slideUp(300, function() {
+          $(".two").slideDown(300);
+        });
+      });
+      $("#three").click(function() {
+        $(".tasks li:not(.three)").slideUp(300, function() {
+          $(".three").slideDown(300);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
 </html>
