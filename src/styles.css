@@ -1,333 +1,129 @@
 html {
-  background: url(https://raw.githubusercontent.com/arjunamgain/FilterMenu/master/images/bg.jpg)
-    no-repeat center center fixed;
-  background-size: cover;
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  font-family: "Montserrat";
 }
 
 body {
-  font: 300 14px/18px Roboto;
-}
-html,
-body {
-  height: 100%;
-}
-* {
+  text-align: center;
   margin: 0;
   padding: 0;
-}
-*,
-:after,
-:before {
-  box-sizing: border-box;
+  background: linear-gradient(180deg, #2e0042 0%, rgba(132, 0, 255, 1) 100%)
+    no-repeat center;
 }
 
-.clearfix:after,
-.clearfix:before {
-  content: "";
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
-  display: block;
-}
-
-.muck-up {
-  width: 310px;
-  height: 545px;
-  margin: 5em auto;
-  position: relative;
-  overflow: hidden;
-}
-
-.overlay {
-  background: url("https://raw.githubusercontent.com/arjunamgain/FilterMenu/master/images/header.jpg")
-    no-repeat top / contain;
+.mic {
   position: absolute;
+  background: white;
+  border-radius: 50%;
+  height: 90px;
+  width: 90px;
+  margin-left: auto;
+  margin-right: auto;
   left: 0;
-  top: 0;
   right: 0;
-  bottom: 0;
+  bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.overlay:after {
-  content: "";
+.mic.active{
+  background-color: #2f0043;
+}
+
+.circle {
   position: absolute;
+  margin-left: auto;
+  margin-right: auto;
   left: 0;
-  top: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(71, 32, 84, 0.5);
-}
-
-.muck-up > .top {
-  position: relative;
-  min-height: 240px;
-  padding: 15px;
-  color: #fff;
-}
-
-.top .nav span {
-  float: left;
-  display: block;
-}
-
-.nav p {
-  margin-top: 2px;
-  display: inline-block;
-  float: left;
-  vertical-align: bottom;
-}
-
-.ion-android-menu {
-  font-size: 24px;
-  margin-right: 17px;
-}
-
-.nav .ion-ios-more-outline {
-  font-size: 38px;
-  float: right !important;
-}
-
-.user-profile {
-  margin-top: 90px;
-}
-
-.user-profile img {
-  height: 45px;
-  width: 45px;
   border-radius: 50%;
-  float: left;
-  margin-right: 24px;
+  background: rgba(255, 255, 255, 1);
+  bottom: 85px;
+  height: 120px;
+  width: 120px;
+  animation: scaleIn 4s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
 }
 
-.user-details p {
-  font-size: 11px;
+#first {
+  animation-delay: -3s;
+}
+#second {
+  animation-delay: -2s;
+}
+#third {
+  animation-delay: -1s;
+}
+#fourth {
+  animation-delay: 0s;
 }
 
-.user-details {
-  float: left;
-  margin-top: 5px;
-  vertical-align: bottom;
+@keyframes scaleIn {
+  from {
+    transform: scale(0.5, 0.5);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(2.5, 2.5);
+    opacity: 0;
+  }
 }
 
-.user-details h4 {
-  font-size: 18px;
+.second {
+  background: rgba(255, 255, 255, 0.3);
+  bottom: 55px;
+  height: 180px;
+  width: 180px;
+  animation: scaleIn 4s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
 }
 
-.filter-btn {
+.mic-ic {
+  height: 38px;
+  width: 38px;
+}
+
+.question {
   position: absolute;
-  z-index: 2;
+  margin-right: auto;
+  margin-left: auto;
+  left: 0;
   right: 0;
-  width: 40px;
-  height: 40px;
-  transition: all 0.4s ease-in-out 0s;
+  top: 150px;
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
 }
 
-.filter-btn span {
-  width: 40px;
-  height: 40px;
-  background: #fa396b;
-  display: block;
+.instruction {
   position: absolute;
-  right: 25px;
-  top: -46px;
-  text-align: center;
-  color: #fff;
-  line-height: 40px;
-  border-radius: 50%;
-  font-size: 22px;
-  z-index: 999;
-}
-span.toggle-btn.ion-android-funnel:hover {
-  cursor: pointer;
-}
-.filter-btn a {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  right: 25px;
-  display: block;
-  top: -46px;
-  color: #fff;
-  z-index: 99;
-  font-size: 22px;
-  transition: all 0.4s cubic-bezier(0.68, 1, 0.265, 1);
-}
-
-.filter-btn:after {
-  height: 170px;
-  width: 170px;
-  content: "";
-  background-color: #fa396b;
-  position: absolute;
-  top: -110px;
-  right: -40px;
-  border-radius: 50%;
-  transform: scale(0);
-  transition: all 0.3s ease-in-out 0s;
-}
-
-.filter-btn.open span.toggle-btn.ion-android-funnel {
-  background-color: #de3963;
-}
-
-.filter-btn.open .ion-android-funnel:before {
-  content: "\f2d7";
-}
-
-.open:after {
-  transform: scale(1);
-}
-
-.filter-btn.open a:nth-child(1) {
-  transform: translate(9px, -62px);
-}
-
-.filter-btn.open a:nth-child(2) {
-  transform: translate(-50px, -34px);
-}
-
-.filter-btn.open a:nth-child(3) {
-  transform: translate(-56px, 25px);
-}
-
-.filter-btn.open a:nth-child(4) {
-  transform: translate(5px, 61px);
-}
-
-.muck-up .bottom {
-  background-color: transparent;
-  min-height: 303px;
-  z-index: 1;
-  padding: 35px;
-  position: relative;
-  color: #222;
-  padding-top: 50px;
-  overflow-y: auto;
-  height: 390px;
-  margin-bottom: 20px;
-}
-
-.bottom-back {
-  content: "";
-  position: absolute;
-  top: 200px;
-  background: #fff;
-  left: -600px;
+  margin-right: auto;
+  margin-left: auto;
+  left: 0;
   right: 0;
-  height: 800px;
-  -webkit-transform: rotate(10deg);
-  transform: rotate(10deg);
-  z-index: 0;
+  top: 250px;
+  color: white;
+  font-weight: 300;
+  font-size: 12px;
 }
-.bottom .title {
-  margin-bottom: 20px;
-}
-
-.bottom .title h3 {
-  font-size: 22px;
-  margin-bottom: 5px;
-}
-
-.title small {
-  font-size: 10px;
-  color: #888;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-ul.tasks .task-title {
-  font-size: 13px;
-  display: inline-block;
-}
-
-ul.tasks .task-time {
-  float: right;
-  font-size: 10px;
-  color: #888;
-}
-
-ul.tasks .task-cat {
-  font-size: 10px;
-  display: block;
-  color: #888;
-}
-
-ul.tasks li {
-  margin-bottom: 16px;
-  position: relative;
-  z-index: 8;
-}
-
-ul.tasks li:after {
-  content: "";
+.hint {
   position: absolute;
-  left: -18px;
-  top: 8px;
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-}
-
-.red {
-  background: #ff3163;
-}
-
-.green {
-  background: #54d6c7;
-}
-
-.yellow {
-  background: #eab429;
-}
-
-ul li.hang {
-  margin-bottom: 48px;
-}
-
-ul li.hang img {
-  float: left;
-  height: 20ox;
-  width: 20px;
-  border-radius: 50%;
-  margin-right: 8px;
-}
-
-.tasks {
-  padding-left: 0;
-}
-ul {
-  list-style: none;
-}
-body {
-  margin: 0;
-  overflow: hidden;
-}
-.muck-up {
-  margin: 0;
+  margin-right: auto;
+  margin-left: auto;
+  left: 70px;
+  right: 70px;
+  padding: 10px;
+  top: 300px;
+  border-radius: 5px;
+  background-color: white;
   width: unset;
-  height: unset;
+  display: inline;
+  border: 1px solid #2e0042;
 }
-
-div.dot {
-  content: "";
-  position: absolute;
-  left: -18px;
-  top: 8px;
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-}
-
-.line {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 1px;
-  background: #eee;
-  left: 20px;
-  top: 220px;
+.hint span {
+  color: #2e0042;
+  font-weight: 600;
+  font-size: 14px;
 }
