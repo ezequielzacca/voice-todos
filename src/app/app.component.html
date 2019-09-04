@@ -1,24 +1,20 @@
-<div class="question">
-  What do you need?
-</div>
-<div class="instruction">
-  Try saying:
-</div>
-<div class="hint">
-  <span>{{ isListening }}</span>
-</div>
-
-<span class="circle" id="first"></span>
-<span class="circle" id="second"></span>
-<span class="circle" id="third"></span>
-<span class="circle" id="fourth"></span>
-<div class="mic" [ngClass]="isListening" (click)="toggleVoiceRecognition()">
-  <img
-    class="mic-ic"
-    [src]="
-      isListening === 'active'
-        ? 'assets/microphone_active.svg'
-        : 'assets/microphone.svg'
-    "
-  />
+<div class="container">
+  <div class="question">
+    ¿Que necesitas?
+  </div>
+  <div class="instruction">
+    Intenta diciendo:
+  </div>
+  <div class="hint">
+    <span>{{ "¿Quien eres?" }}</span>
+  </div>
+  <div class="mic-container">
+    <span class="circle" id="first"></span>
+    <span class="circle" id="second"></span>
+    <span class="circle" id="third"></span>
+    <span class="circle" id="fourth"></span>
+    <div class="mic" (click)="toggleVoiceRecognition()">
+      <img class="mic-ic" [src]="'assets/microphone.svg'" />
+    </div>
+  </div>
 </div>

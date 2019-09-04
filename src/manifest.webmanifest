@@ -1,6 +1,6 @@
 {
-  "name": "voice-todos",
-  "short_name": "voice-todos",
+  "name": "Jarvis",
+  "short_name": "Jarvis",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

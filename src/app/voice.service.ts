@@ -1,54 +1,28 @@
 import { Injectable } from "@angular/core";
-import { ReplaySubject, Observable, Subject, BehaviorSubject } from "rxjs";
-import { take } from "rxjs/operators";
-declare var window: any;
-window.SpeechRecognition =
-  window.webkitSpeechRecognition || window.SpeechRecognition;
+import { Subject, BehaviorSubject } from "rxjs";
+declare var responsiveVoice: any;
 @Injectable()
 export class VoiceAPIService {
-  private readonly VOICE_NAME = "Google UK English Male";
-  private _voice: SpeechSynthesisVoice;
+  private readonly VOICE_NAME = "Spanish Male";
 
-  constructor() {
-    if ("SpeechRecognition" in window) {
-      console.log("recognition supported");
-    } else {
-      console.log("speech recognition is not supported");
-    }
-    this.init();
-  }
-  private _onVoiceReady: ReplaySubject<any> = new ReplaySubject<any>();
+  constructor() {}
   onSpeechRecognized: Subject<any> = new Subject<any>();
-  isListening: Subject<"active" | "inactive"> = new BehaviorSubject<
+  isListening: BehaviorSubject<"active" | "inactive"> = new BehaviorSubject<
     "active" | "inactive"
   >("inactive");
 
-  init(): void {
-    speechSynthesis.onvoiceschanged = () => {
-      console.log(speechSynthesis.getVoices());
-      this._voice = speechSynthesis.getVoices().find(voice => {
-        return voice.name == "Google UK English Male";
-      });
-      this._onVoiceReady.next();
-    };
-  }
-
-  onVoiceReady: Observable<any> = this._onVoiceReady.pipe(take(1));
-
   createMessage(message: string) {
-    var msg = new SpeechSynthesisUtterance(message);
-    msg.voice = this._voice;
-    speechSynthesis.speak(msg);
+    responsiveVoice.speak(message, this.VOICE_NAME);
   }
 
   startRecognizing() {
     //this._recognition.continuous = true;
-    const recognition = new window.SpeechRecognition();
+    const recognition = new (<any>window).webkitSpeechRecognition();
+    recognition.lang = "es-ES";
     recognition.onresult = event => {
       const speechToText = event.results[0][0].transcript;
-      console.log("transcript is: ", speechToText);
-      console.log("next is: ", speechToText);
       this.onSpeechRecognized.next(speechToText);
+      console.log("REEECOOOGGGNIIIZZEEEDD");
       this.isListening.next("inactive");
     };
 

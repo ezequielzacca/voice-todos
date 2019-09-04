@@ -12,25 +12,35 @@ body {
   padding: 0;
   background: linear-gradient(180deg, #2e0042 0%, rgba(132, 0, 255, 1) 100%)
     no-repeat center;
+  height: 100%;
+}
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: space-around;
 }
 
 .mic {
-  position: absolute;
   background: white;
   border-radius: 50%;
   height: 90px;
   width: 90px;
+  position: absolute;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
-  bottom: 100px;
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.mic.active{
+.mic.active {
   background-color: #2f0043;
 }
 
@@ -42,7 +52,6 @@ body {
   right: 0;
   border-radius: 50%;
   background: rgba(255, 255, 255, 1);
-  bottom: 85px;
   height: 120px;
   width: 120px;
   animation: scaleIn 4s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
@@ -72,12 +81,8 @@ body {
   }
 }
 
-.second {
-  background: rgba(255, 255, 255, 0.3);
-  bottom: 55px;
-  height: 180px;
-  width: 180px;
-  animation: scaleIn 4s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+.mic-container {
+  flex-grow: 0.4;
 }
 
 .mic-ic {
@@ -86,7 +91,6 @@ body {
 }
 
 .question {
-  position: absolute;
   margin-right: auto;
   margin-left: auto;
   left: 0;
@@ -95,10 +99,10 @@ body {
   color: white;
   font-size: 30px;
   font-weight: 600;
+  flex-grow: 0.2;
 }
 
 .instruction {
-  position: absolute;
   margin-right: auto;
   margin-left: auto;
   left: 0;
@@ -107,9 +111,9 @@ body {
   color: white;
   font-weight: 300;
   font-size: 12px;
+  flex-grow: 0.1;
 }
 .hint {
-  position: absolute;
   margin-right: auto;
   margin-left: auto;
   left: 70px;
@@ -118,9 +122,9 @@ body {
   top: 300px;
   border-radius: 5px;
   background-color: white;
-  width: unset;
-  display: inline;
+  display: block;
   border: 1px solid #2e0042;
+  margin-bottom: 70px;
 }
 .hint span {
   color: #2e0042;
